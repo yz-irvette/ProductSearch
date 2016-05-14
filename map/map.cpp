@@ -35,6 +35,7 @@ string RandNextNode(vector<Edge>& next, float random) {
 	return next[l].to;
 }
 
+map<string, string> features;
 map<string, vector<Edge> > node_edge;
 vector<string> nodes;
 
@@ -45,7 +46,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 		Edge e_a(a, b, weight 
 			+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 		node_edge[a].push_back(e_a);
@@ -61,7 +62,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
@@ -77,7 +78,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
@@ -93,7 +94,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
@@ -109,7 +110,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
@@ -125,7 +126,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
@@ -141,7 +142,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
@@ -157,7 +158,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
@@ -173,7 +174,7 @@ int main() {
 		float weight;
 		fscanf(fp, "%[^|]|%[^,],%f\r\n", in_a, in_b, &weight);
 		string a(in_a);
-		string b(in_b);
+		string b = features[string(in_b)];
 			Edge e_a(a, b, weight 
 				+ (node_edge[a].size()==0 ? 0 : (node_edge[a][node_edge[a].size()-1].total_weight)));
 			node_edge[a].push_back(e_a);
