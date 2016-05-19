@@ -20,11 +20,11 @@ tf.flags.DEFINE_string("optimizer", "Adam", "Optimizer (Adam, Adagrad or SGD)")
 # Model Parameters
 tf.flags.DEFINE_integer("max_content_length", 50, "Maximum length of context in words")
 tf.flags.DEFINE_integer("max_utterance_length", 1, "Maximum length of utterance in word")
-tf.flags.DEFINE_integer("embedding_dim", 300, "Embedding dimensionality")
+tf.flags.DEFINE_integer("embedding_dim", 200, "Embedding dimensionality")
 tf.flags.DEFINE_integer("rnn_dim", 256, "Dimensionality of RNN/LSTM state")
 
 # Data
-tf.flags.DEFINE_string("data_dir", "./zydata", "Data directory that contain train/valid/test CSVs")
+tf.flags.DEFINE_string("data_dir", "./zydata", "Data directory that contain train/valid/test CSVs and vectors TXT")
 
 FLAGS = tf.flags.FLAGS
 FLAGS._parse_flags()
@@ -75,16 +75,16 @@ print("Total words: {}".format(n_words))
 
 # Load glove vectors
 # ==================================================
-#vocab_set = set(vocab_processor.vocabulary_._mapping.keys())
-#glove_vectors, glove_dict = load_glove_vectors(os.path.join(FLAGS.data_dir, "glove.840B.300d.txt"), vocab_set)
+vocab_set = set(vocab_processor.vocabulary_._mapping.keys())
+glove_vectors, glove_dict = load_glove_vectors(os.path.join(FLAGS.data_dir, "vectors.txt"), vocab_set)
 
 
 # Build initial word embeddings
 # ==================================================
 initial_embeddings = np.random.uniform(-0.25, 0.25, (n_words, EMBEDDING_DIM)).astype("float32")
-#for word, glove_word_idx in glove_dict.items():
-   # word_idx = vocab_processor.vocabulary_.get(word)
-   # initial_embeddings[word_idx, :] = glove_vectors[glove_word_idx]
+for word, glove_word_idx in glove_dict.items():
+    word_idx = vocab_processor.vocabulary_.get(word)
+    initial_embeddings[word_idx, :] = glove_vectors[glove_word_idx]
 
 
 # Define RNN Dual Encoder Model
